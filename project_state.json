@@ -1,18 +1,17 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 3,
-  "summary": "Workplace Access & Resource Request Management System (Team 23) — A full-stack enterprise platform where employees raise access/resource requests, AI analyzes and routes them for approval, tracks progress in real-time, monitors compliance risks, and exports reports. Built with React + Tailwind (frontend), FastAPI (backend), PostgreSQL (database), and LangChain + OpenAI for AI features.",
+  "projectStateVersion": 5,
+  "summary": "Workplace Access & Resource Request Management System (Team 23) — A full-stack enterprise platform where employees raise access/resource requests, AI analyzes and routes them for approval, tracks progress in real-time, monitors compliance risks, and exports reports. Built with React + Tailwind (frontend), FastAPI (backend), SQLite3 (database), and LangChain + OpenAI for AI features.",
   "architectural_notes": [
-    "Frontend: React + Tailwind CSS; Backend: FastAPI (Python); Database: PostgreSQL",
     "3-Tier Architecture: Web UI → Backend API → Database with separate Auth layer and Export module",
     "AI Agent (Code Quality Checker): LangChain + OpenAI API, deployed as separate microservice; accepts code file + checklist, outputs observations, suggestions, risk level, overall rating",
     "Deployment: Vercel (frontend) + Render (backend); Testing: Postman + Playwright",
     "RBAC enforced across all modules; all sensitive data encrypted in transit and at rest; MFA supported",
-    "System must support 5,000 concurrent users, respond within 2 seconds, and maintain 99.5% uptime"
+    "System must support 5,000 concurrent users, respond within 2 seconds, and maintain 99.5% uptime",
+    "Database changed from PostgreSQL to SQLite3 per user request"
   ],
   "known_issues": [],
   "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Enterprise application logo mark — shield icon with a checkmark and flowing lines suggesting access control, on a transparent background (accessflow-logo.dim_128x128.png)\n- Abstract hero background for the login page — deep navy blue geometric mesh pattern with subtle teal gradient glow nodes (login-bg.dim_1440x900.png)",
   "existing_features": [
     {
       "id": "feature-apply-a-professional-enterprise-visual-theme-across-the-entire-application-deep-navy-slate-primary-palette-with-teal-cyan-accents-clean-sans-serif-typography-inter-or-similar-card-based-layouts-with-subtle-shadows-status-color-coding-yellow-submitted-blue-approved-green-completed-red-rejected-orange-in-fulfillment-and-a-collapsible-left-sidebar-navigation-ensure-the-design-is-responsive-and-mobile-friendly",
@@ -174,6 +173,14 @@
       "summary": "Build a backend data model and actor in Motoko to store: Users (id, name, role, department, managerDelegate), Requests (id, employeeId, type, category, justification, status, riskLevel, priority, createdAt, slaDeadline, estimatedCompletion, approvalChain, currentApprover, cost), AuditLogs (id, requestId, actorId, action, timestamp, notes), and Notifications (id, userId, message, read, createdAt). Expose query and update functions for CRUD operations on all entities.",
       "reqIds": [
         "REQ-3"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "The user has requested SQLite3 as the database layer. This platform uses Motoko on the Internet Computer as the backend, which does not support external databases such as SQLite3. All persistent state must continue to be stored using Motoko stable variables and actor-based data structures in backend/main.mo. No changes to the backend storage architecture are required or possible.",
+      "reqIds": [
+        "REQ-12"
       ],
       "status": "pending"
     }

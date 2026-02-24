@@ -1,0 +1,297 @@
+{
+  "kind": "build_request",
+  "title": "Workplace Access & Resource Request Management System — Full UI Build",
+  "projectName": "AccessFlow 23",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Apply a professional enterprise visual theme across the entire application: deep navy/slate primary palette with teal/cyan accents, clean sans-serif typography (Inter or similar), card-based layouts with subtle shadows, status-color coding (yellow=Submitted, blue=Approved, green=Completed, red=Rejected, orange=In Fulfillment), and a collapsible left sidebar navigation. Ensure the design is responsive and mobile-friendly.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "The interface shall be responsive and mobile-friendly.",
+          "Users shall be able to complete a request within 3 steps."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Consistent color palette and typography applied across all pages",
+        "Collapsible left sidebar with navigation links to all modules",
+        "Status badges use the defined color coding system",
+        "Layout is usable on mobile screen widths"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement a Login Page with a company-branded sign-in form (email + password fields), an Internet Identity login button, and an MFA indicator badge. The page must show a role selector (Employee, Manager, IT Admin, Finance Admin) to simulate RBAC personas for demo purposes.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "FR-01: User Authentication",
+          "The system shall implement Role-Based Access Control (RBAC).",
+          "Multi-Factor Authentication (MFA) shall be supported."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Login form renders with email, password fields and a sign-in button",
+        "Role selector allows switching between Employee, Manager, IT Admin, Finance Admin",
+        "MFA badge/indicator is visible on the page",
+        "Successful login navigates to the Dashboard"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Build a backend data model and actor in Motoko to store: Users (id, name, role, department, managerDelegate), Requests (id, employeeId, type, category, justification, status, riskLevel, priority, createdAt, slaDeadline, estimatedCompletion, approvalChain, currentApprover, cost), AuditLogs (id, requestId, actorId, action, timestamp, notes), and Notifications (id, userId, message, read, createdAt). Expose query and update functions for CRUD operations on all entities.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "FR-02: Request Creation",
+          "FR-04: Approval Workflow",
+          "FR-05: Status Tracking",
+          "audit trail logs"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All four data types are defined as stable variables in main.mo",
+        "CRUD functions are callable for Requests, Users, AuditLogs, and Notifications",
+        "Request status can be updated through an updateRequestStatus function",
+        "Approval chain is stored as an array of approver role strings per request"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Create a main Dashboard page showing: (1) a summary row of KPI cards — Total Requests, Pending Approvals, Completed This Month, SLA Breaches; (2) a recent requests table with columns for Request ID, Type, Status badge, Submitted Date, and SLA countdown; (3) a requests-by-status donut chart; (4) a requests-by-category bar chart. The dashboard must adapt its visible actions based on the logged-in role.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Request Tracking Dashboard",
+          "Tracking Dashboard",
+          "Bottleneck detection",
+          "Estimated completion time"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Four KPI cards display with correct labels and mock/live data",
+        "Recent requests table renders with status badges and SLA countdown timers",
+        "Donut chart shows request distribution by status",
+        "Bar chart shows request distribution by category",
+        "Role-specific action buttons differ between Employee and Admin views"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Build a Create Request page with a multi-step wizard (3 steps max): Step 1 — select request type (System Access, Physical Access, Equipment, Software Licenses) with icon cards; Step 2 — fill request details form (sub-category, justification text, priority selector, cost estimate, document attachment field); Step 3 — AI Pre-Submission Analysis panel showing duplicate access warnings, missing info alerts, suggested access level, and recommended approval chain, with a 'Confirm & Submit' button. After submit, save the request to the backend.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Select request type",
+          "Add justification",
+          "Attach documents",
+          "AI analyzes the request before submission",
+          "Checks if the employee already has similar access",
+          "Detects missing information",
+          "Suggests proper access level",
+          "Recommends appropriate approval chain"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Three-step wizard with progress indicator renders correctly",
+        "Step 1 shows four request type cards with icons",
+        "Step 2 form captures all required fields including justification and priority",
+        "Step 3 displays AI analysis panel with simulated suggestions and warnings",
+        "Submitting the form creates a new request record in the backend",
+        "User is redirected to the request detail page after submission"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Build a Request Detail Page showing: full request metadata (type, category, status, priority, cost, justification), an approval chain timeline (showing each approver node, their status, and timestamp), a status progress stepper (Submitted → Under Review → Approved → In Fulfillment → Completed), a SLA countdown timer, AI risk flags panel (e.g., 'Warning: user already has admin access in 3 systems'), and an activity/audit log feed at the bottom.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Real-Time Progress Tracking",
+          "SLA countdown timer",
+          "Delay notifications",
+          "AI Risk & Compliance Monitoring",
+          "audit trail logs",
+          "Estimated completion time"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All request metadata fields are displayed",
+        "Approval chain renders as a vertical timeline with approver names and statuses",
+        "Status stepper highlights the current stage",
+        "SLA countdown timer counts down from the deadline",
+        "AI risk flags panel shows warning messages when applicable",
+        "Audit log lists all actions taken on the request with timestamps"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Build an Approvals Screen (visible to Manager, IT Admin, Finance Admin roles) listing all requests pending their approval. Each row shows: requester name, request type, risk level badge, cost, and action buttons (Approve, Reject, Request More Info). Implement intelligent approval routing logic in the backend: low-risk software requests are auto-approved; high-risk requests require Manager + IT Security; requests over $1,000 require Finance approval. Approving or rejecting a request updates its status and appends an audit log entry.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Intelligent Approval Routing",
+          "Low-risk software → Auto-approve",
+          "High-risk server access → Manager + IT Security + Compliance",
+          "BR-01",
+          "BR-02",
+          "BR-03",
+          "BR-04"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Approvals list page renders with pending requests filtered by logged-in approver role",
+        "Risk level badge is shown per request row",
+        "Approve and Reject buttons update request status in the backend",
+        "Auto-approval logic sets low-risk software requests to Approved without manual action",
+        "High-risk requests display multi-level approval chain",
+        "Audit log entry is created on each approval/rejection action"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Build an AI Chatbot Assistant panel (floating button on all pages that expands to a sidebar chat). The chatbot accepts natural language input, simulates NLP parsing to extract structured fields (category, priority, quantity, reason), displays the parsed request summary, and offers a one-click 'Create This Request' button that pre-fills the Create Request form. Include example prompt suggestions like 'I need access to CRM for a marketing campaign' and 'Need laptop urgently for new joiner tomorrow'.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "AI Chatbot Assistant",
+          "Employees can type",
+          "Auto-creates structured request",
+          "Suggests proper access level",
+          "Shows estimated approval time",
+          "Natural Language Processing (NLP)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Floating chatbot button is visible on all pages",
+        "Chatbot sidebar opens on click and accepts text input",
+        "Entering a natural language request displays a structured parsed output (category, priority, quantity, reason)",
+        "A 'Create This Request' button pre-fills the Create Request wizard",
+        "Suggested example prompts are shown when the chat is empty"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Build a Reports & Export page (Admin/Management role only) with: (1) a filter bar for date range, department, and request type; (2) a summary statistics section with charts (requests over time line chart, approval rate pie chart, SLA compliance bar chart); (3) export buttons for CSV download and a printable PDF summary view; (4) a department-wise breakdown table; (5) an audit trail log table with search and pagination. Generate report data from the backend's stored requests and audit logs.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Export & Reporting",
+          "PDF Summary Report",
+          "Excel (CSV)",
+          "Department-wise breakdown",
+          "Audit trail logs",
+          "Compliance-ready reports",
+          "Monthly Management Report",
+          "Security Audit Report"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Reports page is accessible only to Admin/Management roles",
+        "Filter bar updates all charts and tables on apply",
+        "Line chart shows request volume over time",
+        "CSV export downloads a correctly formatted file with request data",
+        "PDF print view renders a clean summary layout",
+        "Department breakdown table groups requests by department with counts and SLA compliance %",
+        "Audit trail table supports text search and pagination"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Build an Admin Configuration page with tabs for: (1) User Management — list users, assign roles, set manager delegates; (2) SLA Rules — configure SLA timelines per request category; (3) Approval Chain Policies — define which roles approve which request types and risk levels; (4) System Notifications — toggle in-app notification preferences. All configuration changes must persist to the backend.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Admin Configuration",
+          "Admin Config",
+          "Optimization suggestions",
+          "BR-05",
+          "SLA timelines"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Admin Config page renders with four tabs",
+        "User Management tab lists all users and allows role and delegate assignment",
+        "SLA Rules tab allows editing deadline hours per request category",
+        "Approval Chain Policies tab shows and allows editing of routing rules per risk level",
+        "All changes are persisted to backend stable storage"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Implement an in-app notification system: a bell icon in the top navigation bar shows unread notification count badge. Clicking opens a notification dropdown listing alerts such as 'Your request #123 has been approved', 'SLA breach warning for request #456', and 'New request pending your approval'. Notifications are fetched from the backend and can be marked as read.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "FR-06: Notification System",
+          "The system shall notify users and approvers via email or in-app alerts.",
+          "Delay notifications"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Bell icon in navbar shows unread count badge",
+        "Clicking bell opens a dropdown with notification list",
+        "Each notification shows message text and timestamp",
+        "Mark as read updates the notification in the backend and removes the badge count"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not integrate external AI services (OpenAI, LangChain) — simulate AI analysis, NLP parsing, and chatbot responses with rule-based frontend logic and mock data",
+    "Do not use PostgreSQL, FastAPI, or Node.js — use Motoko single-actor backend on Internet Computer",
+    "Do not implement actual email sending — use in-app notifications only",
+    "Do not edit files under frontend/src/hooks/ or frontend/src/components/ui/",
+    "All backend logic must remain in a single Motoko actor in backend/main.mo"
+  ],
+  "nonGoals": [
+    "AI Code Quality Checker microservice (LangChain/LlamaIndex/CrewAI agent — not supported)",
+    "External database integration (PostgreSQL/MySQL)",
+    "Real email notifications via SMTP/SendGrid",
+    "Deployment to Vercel or Render",
+    "Playwright or Postman testing scripts",
+    "Multi-Factor Authentication via external MFA provider",
+    "Real file/document upload and storage"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Enterprise application logo mark — shield icon with a checkmark and flowing lines suggesting access control, on a transparent background (accessflow-logo.dim_128x128.png)",
+      "Abstract hero background for the login page — deep navy blue geometric mesh pattern with subtle teal gradient glow nodes (login-bg.dim_1440x900.png)"
+    ],
+    "edits": []
+  }
+}

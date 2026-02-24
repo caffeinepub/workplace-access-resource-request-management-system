@@ -1,0 +1,16 @@
+{
+  "frontend/src/hooks/useQueries.ts": "All React Query hooks for backend interactions; defines local `RiskLevel` type (as string union) since it's not exported from the backend interface, and uses it in `useCreateRequest` with a type cast.",
+  "frontend/src/App.tsx": "Main app router setup with TanStack Router; removed unused `redirect` import and cleaned up the route tree with all 6 page routes properly registered.",
+  "frontend/src/pages/DashboardPage.tsx": "Dashboard page with KPI cards, status/category charts, and recent requests table; fixed dynamic navigation using `useNavigate` with `params` instead of template literal `to` prop on `Link`.",
+  "frontend/src/pages/CreateRequestPage.tsx": "Three-step request creation wizard with type selection, details form, and AI analysis panel; pre-fills from chatbot URL params and submits to backend.",
+  "frontend/src/pages/RequestDetailPage.tsx": "Full request detail view with metadata, status stepper, SLA countdown, approval timeline, AI risk panel, and audit log feed.",
+  "frontend/src/pages/ApprovalsPage.tsx": "Requests list page with search/filter controls, risk badges, and approval action buttons for admins; shows all requests with status filtering.",
+  "frontend/src/pages/ReportsPage.tsx": "Admin-only reports page with volume/approval/SLA charts, department breakdown table, CSV export, print support, and paginated audit trail.",
+  "frontend/src/pages/AdminConfigPage.tsx": "Admin-only configuration page with four tabs: User Management, SLA Rules, Approval Policies, and Notifications.",
+  "frontend/src/components/UserManagementTab.tsx": "Tab component for listing users and assigning roles with inline select controls and save buttons.",
+  "frontend/src/components/SLARulesTab.tsx": "Tab component for viewing and editing SLA deadline hours per request category, with ability to add custom rules.",
+  "frontend/src/components/ApprovalPoliciesTab.tsx": "Tab component for listing and adding approval chain policies with request type, risk level, and required approver roles.",
+  "frontend/src/components/NotificationsTab.tsx": "Tab component for toggling in-app notification preferences per user with Switch controls.",
+  "frontend/src/utils/exportUtils.ts": "Utility functions for CSV export of request data and print summary generation.",
+  "frontend/src/lib/utils.ts": "Utility function `cn` combining clsx and tailwind-merge for conditional class name merging."
+}

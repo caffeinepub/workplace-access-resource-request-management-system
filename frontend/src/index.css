@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Deep Navy/Slate Primary */
+    --background: 0.97 0.008 240;
+    --foreground: 0.18 0.025 255;
+
+    --card: 1 0 0;
+    --card-foreground: 0.18 0.025 255;
+
+    --popover: 1 0 0;
+    --popover-foreground: 0.18 0.025 255;
+
+    /* Navy primary */
+    --primary: 0.28 0.07 255;
+    --primary-foreground: 0.98 0 0;
+
+    /* Teal accent */
+    --accent: 0.55 0.12 195;
+    --accent-foreground: 0.98 0 0;
+
+    --secondary: 0.93 0.015 240;
+    --secondary-foreground: 0.28 0.07 255;
+
+    --muted: 0.93 0.01 240;
+    --muted-foreground: 0.52 0.025 255;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.88 0.015 240;
+    --input: 0.88 0.015 240;
+    --ring: 0.55 0.12 195;
+
+    /* Status colors */
+    --status-pending: 0.75 0.15 75;
+    --status-approved: 0.55 0.14 230;
+    --status-completed: 0.55 0.14 155;
+    --status-rejected: 0.55 0.22 25;
+    --status-inprogress: 0.65 0.16 50;
+    --status-moreinfo: 0.6 0.12 290;
+
+    /* Charts */
+    --chart-1: 0.55 0.14 230;
+    --chart-2: 0.55 0.12 195;
+    --chart-3: 0.55 0.14 155;
+    --chart-4: 0.75 0.15 75;
+    --chart-5: 0.55 0.22 25;
+
+    /* Sidebar */
+    --sidebar: 0.2 0.04 255;
+    --sidebar-foreground: 0.9 0.01 240;
+    --sidebar-primary: 0.55 0.12 195;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.28 0.05 255;
+    --sidebar-accent-foreground: 0.9 0.01 240;
+    --sidebar-border: 0.3 0.04 255;
+    --sidebar-ring: 0.55 0.12 195;
+  }
+
+  .dark {
+    --background: 0.13 0.03 255;
+    --foreground: 0.92 0.01 240;
+
+    --card: 0.18 0.035 255;
+    --card-foreground: 0.92 0.01 240;
+
+    --popover: 0.2 0.04 255;
+    --popover-foreground: 0.92 0.01 240;
+
+    --primary: 0.55 0.12 195;
+    --primary-foreground: 0.98 0 0;
+
+    --accent: 0.55 0.12 195;
+    --accent-foreground: 0.98 0 0;
+
+    --secondary: 0.22 0.04 255;
+    --secondary-foreground: 0.92 0.01 240;
+
+    --muted: 0.22 0.04 255;
+    --muted-foreground: 0.6 0.02 240;
+
+    --destructive: 0.6 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.28 0.04 255;
+    --input: 0.28 0.04 255;
+    --ring: 0.55 0.12 195;
+
+    --sidebar: 0.15 0.035 255;
+    --sidebar-foreground: 0.9 0.01 240;
+    --sidebar-primary: 0.55 0.12 195;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.22 0.04 255;
+    --sidebar-accent-foreground: 0.9 0.01 240;
+    --sidebar-border: 0.25 0.04 255;
+    --sidebar-ring: 0.55 0.12 195;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  .status-pending {
+    background-color: oklch(0.95 0.08 75);
+    color: oklch(0.45 0.15 75);
+  }
+  .status-approved {
+    background-color: oklch(0.92 0.06 230);
+    color: oklch(0.35 0.14 230);
+  }
+  .status-completed {
+    background-color: oklch(0.92 0.07 155);
+    color: oklch(0.35 0.14 155);
+  }
+  .status-rejected {
+    background-color: oklch(0.95 0.08 25);
+    color: oklch(0.45 0.22 25);
+  }
+  .status-inprogress {
+    background-color: oklch(0.95 0.08 50);
+    color: oklch(0.45 0.16 50);
+  }
+  .status-moreinfo {
+    background-color: oklch(0.93 0.06 290);
+    color: oklch(0.4 0.12 290);
+  }
+
+  .card-shadow {
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.08), 0 1px 2px -1px rgba(0,0,0,0.06);
+  }
+
+  .card-shadow-md {
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.08), 0 2px 4px -2px rgba(0,0,0,0.06);
+  }
+}

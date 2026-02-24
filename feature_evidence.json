@@ -1,0 +1,222 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-apply-a-professional-enterprise-visual-theme-across-the-entire-application-deep-navy-slate-primary-palette-with-teal-cyan-accents-clean-sans-serif-typography-inter-or-similar-card-based-layouts-with-subtle-shadows-status-color-coding-yellow-submitted-blue-approved-green-completed-red-rejected-orange-in-fulfillment-and-a-collapsible-left-sidebar-navigation-ensure-the-design-is-responsive-and-mobile-friendly",
+      "featureTitle": "Apply a professional enterprise visual theme across the entire application: deep navy/slate primary palette with teal/cyan accents, clean sans-serif typography (Inter or similar), card-based layouts with subtle shadows, status-color coding (yellow=Submitted, blue=Approved, green=Completed, red=Rejected, orange=In Fulfillment), and a collapsible left sidebar navigation. Ensure the design is responsive and mobile-friendly.",
+      "files": [
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "user-approval@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-login-page-with-a-company-branded-sign-in-form-email-password-fields-an-internet-identity-login-button-and-an-mfa-indicator-badge-the-page-must-show-a-role-selector-employee-manager-it-admin-finance-admin-to-simulate-rbac-personas-for-demo-purposes",
+      "featureTitle": "Implement a Login Page with a company-branded sign-in form (email + password fields), an Internet Identity login button, and an MFA indicator badge. The page must show a role selector (Employee, Manager, IT Admin, Finance Admin) to simulate RBAC personas for demo purposes.",
+      "files": [
+        "frontend/src/pages/LoginPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "user-approval@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-main-dashboard-page-showing-1-a-summary-row-of-kpi-cards-total-requests-pending-approvals-completed-this-month-sla-breaches-2-a-recent-requests-table-with-columns-for-request-id-type-status-badge-submitted-date-and-sla-countdown-3-a-requests-by-status-donut-chart-4-a-requests-by-category-bar-chart-the-dashboard-must-adapt-its-visible-actions-based-on-the-logged-in-role",
+      "featureTitle": "Create a main Dashboard page showing: (1) a summary row of KPI cards — Total Requests, Pending Approvals, Completed This Month, SLA Breaches; (2) a recent requests table with columns for Request ID, Type, Status badge, Submitted Date, and SLA countdown; (3) a requests-by-status donut chart; (4) a requests-by-category bar chart. The dashboard must adapt its visible actions based on the logged-in role.",
+      "files": [
+        "frontend/src/components/KPICard.tsx",
+        "frontend/src/components/SLACountdown.tsx",
+        "frontend/src/components/StatusBadge.tsx",
+        "frontend/src/pages/DashboardPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "user-approval@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-create-request-page-with-a-multi-step-wizard-3-steps-max-step-1-select-request-type-system-access-physical-access-equipment-software-licenses-with-icon-cards-step-2-fill-request-details-form-sub-category-justification-text-priority-selector-cost-estimate-document-attachment-field-step-3-ai-pre-submission-analysis-panel-showing-duplicate-access-warnings-missing-info-alerts-suggested-access-level-and-recommended-approval-chain-with-a-confirm-submit-button-after-submit-save-the-request-to-the-backend",
+      "featureTitle": "Build a Create Request page with a multi-step wizard (3 steps max): Step 1 — select request type (System Access, Physical Access, Equipment, Software Licenses) with icon cards; Step 2 — fill request details form (sub-category, justification text, priority selector, cost estimate, document attachment field); Step 3 — AI Pre-Submission Analysis panel showing duplicate access warnings, missing info alerts, suggested access level, and recommended approval chain, with a 'Confirm & Submit' button. After submit, save the request to the backend.",
+      "files": [
+        "frontend/src/components/AIAnalysisPanel.tsx",
+        "frontend/src/components/RequestTypeCard.tsx",
+        "frontend/src/pages/CreateRequestPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "user-approval@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-request-detail-page-showing-full-request-metadata-type-category-status-priority-cost-justification-an-approval-chain-timeline-showing-each-approver-node-their-status-and-timestamp-a-status-progress-stepper-submitted-under-review-approved-in-fulfillment-completed-a-sla-countdown-timer-ai-risk-flags-panel-e-g-warning-user-already-has-admin-access-in-3-systems-and-an-activity-audit-log-feed-at-the-bottom",
+      "featureTitle": "Build a Request Detail Page showing: full request metadata (type, category, status, priority, cost, justification), an approval chain timeline (showing each approver node, their status, and timestamp), a status progress stepper (Submitted → Under Review → Approved → In Fulfillment → Completed), a SLA countdown timer, AI risk flags panel (e.g., 'Warning: user already has admin access in 3 systems'), and an activity/audit log feed at the bottom.",
+      "files": [
+        "frontend/src/components/AIRiskPanel.tsx",
+        "frontend/src/components/ApprovalTimeline.tsx",
+        "frontend/src/components/AuditLogFeed.tsx",
+        "frontend/src/components/StatusStepper.tsx",
+        "frontend/src/pages/RequestDetailPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "user-approval@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-an-approvals-screen-visible-to-manager-it-admin-finance-admin-roles-listing-all-requests-pending-their-approval-each-row-shows-requester-name-request-type-risk-level-badge-cost-and-action-buttons-approve-reject-request-more-info-implement-intelligent-approval-routing-logic-in-the-backend-low-risk-software-requests-are-auto-approved-high-risk-requests-require-manager-it-security-requests-over-1-000-require-finance-approval-approving-or-rejecting-a-request-updates-its-status-and-appends-an-audit-log-entry",
+      "featureTitle": "Build an Approvals Screen (visible to Manager, IT Admin, Finance Admin roles) listing all requests pending their approval. Each row shows: requester name, request type, risk level badge, cost, and action buttons (Approve, Reject, Request More Info). Implement intelligent approval routing logic in the backend: low-risk software requests are auto-approved; high-risk requests require Manager + IT Security; requests over $1,000 require Finance approval. Approving or rejecting a request updates its status and appends an audit log entry.",
+      "files": [
+        "frontend/src/components/ApprovalActionButtons.tsx",
+        "frontend/src/pages/ApprovalsPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "user-approval@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-an-ai-chatbot-assistant-panel-floating-button-on-all-pages-that-expands-to-a-sidebar-chat-the-chatbot-accepts-natural-language-input-simulates-nlp-parsing-to-extract-structured-fields-category-priority-quantity-reason-displays-the-parsed-request-summary-and-offers-a-one-click-create-this-request-button-that-pre-fills-the-create-request-form-include-example-prompt-suggestions-like-i-need-access-to-crm-for-a-marketing-campaign-and-need-laptop-urgently-for-new-joiner-tomorrow",
+      "featureTitle": "Build an AI Chatbot Assistant panel (floating button on all pages that expands to a sidebar chat). The chatbot accepts natural language input, simulates NLP parsing to extract structured fields (category, priority, quantity, reason), displays the parsed request summary, and offers a one-click 'Create This Request' button that pre-fills the Create Request form. Include example prompt suggestions like 'I need access to CRM for a marketing campaign' and 'Need laptop urgently for new joiner tomorrow'.",
+      "files": [
+        "frontend/src/components/ChatbotAssistant.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "user-approval@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-reports-export-page-admin-management-role-only-with-1-a-filter-bar-for-date-range-department-and-request-type-2-a-summary-statistics-section-with-charts-requests-over-time-line-chart-approval-rate-pie-chart-sla-compliance-bar-chart-3-export-buttons-for-csv-download-and-a-printable-pdf-summary-view-4-a-department-wise-breakdown-table-5-an-audit-trail-log-table-with-search-and-pagination-generate-report-data-from-the-backend-s-stored-requests-and-audit-logs",
+      "featureTitle": "Build a Reports & Export page (Admin/Management role only) with: (1) a filter bar for date range, department, and request type; (2) a summary statistics section with charts (requests over time line chart, approval rate pie chart, SLA compliance bar chart); (3) export buttons for CSV download and a printable PDF summary view; (4) a department-wise breakdown table; (5) an audit trail log table with search and pagination. Generate report data from the backend's stored requests and audit logs.",
+      "files": [
+        "frontend/src/pages/ReportsPage.tsx",
+        "frontend/src/utils/exportUtils.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "user-approval@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-an-admin-configuration-page-with-tabs-for-1-user-management-list-users-assign-roles-set-manager-delegates-2-sla-rules-configure-sla-timelines-per-request-category-3-approval-chain-policies-define-which-roles-approve-which-request-types-and-risk-levels-4-system-notifications-toggle-in-app-notification-preferences-all-configuration-changes-must-persist-to-the-backend",
+      "featureTitle": "Build an Admin Configuration page with tabs for: (1) User Management — list users, assign roles, set manager delegates; (2) SLA Rules — configure SLA timelines per request category; (3) Approval Chain Policies — define which roles approve which request types and risk levels; (4) System Notifications — toggle in-app notification preferences. All configuration changes must persist to the backend.",
+      "files": [
+        "frontend/src/components/ApprovalPoliciesTab.tsx",
+        "frontend/src/components/NotificationsTab.tsx",
+        "frontend/src/components/SLARulesTab.tsx",
+        "frontend/src/components/UserManagementTab.tsx",
+        "frontend/src/pages/AdminConfigPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "user-approval@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-an-in-app-notification-system-a-bell-icon-in-the-top-navigation-bar-shows-unread-notification-count-badge-clicking-opens-a-notification-dropdown-listing-alerts-such-as-your-request-123-has-been-approved-sla-breach-warning-for-request-456-and-new-request-pending-your-approval-notifications-are-fetched-from-the-backend-and-can-be-marked-as-read",
+      "featureTitle": "Implement an in-app notification system: a bell icon in the top navigation bar shows unread notification count badge. Clicking opens a notification dropdown listing alerts such as 'Your request #123 has been approved', 'SLA breach warning for request #456', and 'New request pending your approval'. Notifications are fetched from the backend and can be marked as read.",
+      "files": [
+        "frontend/src/components/NotificationBell.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "user-approval@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
